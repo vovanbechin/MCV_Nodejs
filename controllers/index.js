@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
+var app = express();
 
-router.use('/use',require('./user'))
-
-router.get('/',function(req,res){
+app.use('/user', require('./user'))
+app.get('/', function(req,res){
     res.render('index',{title:'Home Page'})
 })
 
-router.get('/about', function(req,res){
+app.get('/about', function(req,res){
     res.send('Learn about us');
 })
+
+module.exports = app;
